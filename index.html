@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A calm space for students — motivation, stress relief, and study tips." />
+  <title>Student Support — You're Not Alone</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#home">CalmStudy</a>
+      <nav class="nav" aria-label="Primary">
+        <a href="#home" data-i18n="navHome">Home</a>
+        <a href="#motivation" data-i18n="navMotivation">Motivation</a>
+        <a href="#relief" data-i18n="navRelief">Relief</a>
+        <a href="#express" data-i18n="navExpress">Express</a>
+        <a href="#study" data-i18n="navStudy">Study</a>
+        <a href="#emergency" data-i18n="navHelp">Help</a>
+      </nav>
+      <div class="header-actions">
+        <div class="lang-switch" role="group" aria-label="Language">
+          <button type="button" id="lang-en" class="btn btn--small btn--ghost" aria-pressed="true">English</button>
+          <button type="button" id="lang-ta" class="btn btn--small btn--ghost" aria-pressed="false">தமிழ்</button>
+        </div>
+        <button type="button" id="theme-toggle" class="btn btn--small btn--ghost" aria-pressed="false" data-i18n="themeToggleLight" data-i18n-aria="themeToggleAriaLight">
+          Night calm
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="home" class="section section--hero fade-section" aria-labelledby="hero-title">
+      <div class="container">
+        <p class="hero-emoji" aria-hidden="true">🌿</p>
+        <h1 id="hero-title" data-i18n="heroTitle">You're Not Alone</h1>
+        <p class="lead" data-i18n="heroLead">It's okay to feel stressed. You can take a break and breathe.</p>
+        <a href="#motivation" class="btn btn--primary" data-i18n="ctaStart">Start Feeling Better</a>
+      </div>
+    </section>
+
+    <section id="motivation" class="section fade-section" aria-labelledby="motivation-title">
+      <div class="container">
+        <h2 id="motivation-title" data-i18n="motivationHeading">Motivation</h2>
+        <ul class="motivation-lines">
+          <li data-i18n="motivationLine1">Small steps every day lead to big success.</li>
+          <li data-i18n="motivationLine2">You are stronger than your stress.</li>
+        </ul>
+        <div class="card quote-card">
+          <p class="quote-label" data-i18n="quoteLabel">Today's gentle reminder</p>
+          <blockquote class="quote-text" id="quote-rotator" aria-live="polite"></blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section id="relief" class="section fade-section" aria-labelledby="relief-title">
+      <div class="container">
+        <h2 id="relief-title" data-i18n="reliefHeading">Stress relief</h2>
+        <ul class="tip-grid">
+          <li class="card tip-card" data-i18n="tipBreath">Take deep breaths</li>
+          <li class="card tip-card" data-i18n="tipWater">Drink water</li>
+          <li class="card tip-card" data-i18n="tipBreak">Take short breaks</li>
+          <li class="card tip-card" data-i18n="tipTalk">Talk to someone you trust</li>
+        </ul>
+
+        <div class="card breathing-card" id="breathing-card">
+          <h3 data-i18n="breathingHeading">Breathing guide</h3>
+          <div class="breathing-static" id="breathing-static" hidden>
+            <p data-i18n="breathingReduced">Breathe slowly — in through your nose, out through your mouth.</p>
+          </div>
+          <div class="breathing-active" id="breathing-active">
+            <div class="breathing-visual" aria-hidden="true">
+              <div class="breathing-circle" id="breathing-circle"></div>
+            </div>
+            <p class="breathing-phase" id="breathing-phase" aria-live="polite"></p>
+            <button type="button" class="btn btn--secondary" id="breathing-toggle" data-i18n="breathingStart">Start</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="express" class="section fade-section" aria-labelledby="express-title">
+      <div class="container">
+        <h2 id="express-title" data-i18n="expressHeading">Talk / express</h2>
+        <p class="muted" data-i18n="expressPrivacy">Your words stay on this device only.</p>
+        <label class="sr-only" for="journal" data-i18n="expressLabel">Write what you're feeling</label>
+        <textarea
+          id="journal"
+          class="journal-input"
+          rows="6"
+          data-i18n-placeholder="expressPlaceholder"
+          placeholder="Write what you're feeling…"
+        ></textarea>
+        <div class="row">
+          <button type="button" class="btn btn--secondary" id="journal-clear" data-i18n="expressClear">Clear</button>
+        </div>
+
+        <div class="card mood-card">
+          <p data-i18n="moodPrompt">How are you feeling right now?</p>
+          <div class="mood-buttons" role="group" aria-label="Mood">
+            <button type="button" class="mood-btn" data-mood="good" aria-label="Good">😊</button>
+            <button type="button" class="mood-btn" data-mood="okay" aria-label="Okay">😐</button>
+            <button type="button" class="mood-btn" data-mood="low" aria-label="Low">😔</button>
+          </div>
+          <p class="toast" id="mood-toast" role="status" aria-live="polite" hidden></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="study" class="section fade-section" aria-labelledby="study-title">
+      <div class="container">
+        <h2 id="study-title" data-i18n="studyHeading">Study help</h2>
+        <ul class="tip-list">
+          <li data-i18n="studyTip1">Study in small time blocks</li>
+          <li data-i18n="studyTip2">Avoid distractions</li>
+          <li data-i18n="studyTip3">Make a simple plan</li>
+        </ul>
+
+        <div class="card checklist-card">
+          <h3 data-i18n="checklistHeading">Daily checklist</h3>
+          <form class="checklist-add" id="checklist-form">
+            <label for="checklist-new" class="sr-only" data-i18n="checklistNewLabel">New task</label>
+            <input type="text" id="checklist-new" data-i18n-placeholder="checklistPlaceholder" placeholder="Add a small task…" autocomplete="off" />
+            <button type="submit" class="btn btn--primary" data-i18n="checklistAdd">Add</button>
+          </form>
+          <ul class="checklist" id="checklist" aria-label="Tasks"></ul>
+        </div>
+      </div>
+    </section>
+
+    <section id="emergency" class="section section--emergency fade-section" aria-labelledby="emergency-title">
+      <div class="container">
+        <h2 id="emergency-title" data-i18n="emergencyHeading">If you need support</h2>
+        <div class="card emergency-card">
+          <p data-i18n="emergencyBody">
+            If you feel overwhelmed, please talk to a trusted person like a parent, teacher, or friend.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p class="footer-note" data-i18n="footerNote">Take care of yourself. Small rests count.</p>
+      <div class="footer-extras">
+        <button type="button" class="btn btn--small btn--ghost" id="calm-sound-toggle" aria-pressed="false" data-i18n="calmSoundOff" data-i18n-aria="calmSoundAriaOff">
+          Calm sound off
+        </button>
+      </div>
+    </div>
+  </footer>
+
+  <div id="global-toast" class="toast toast--fixed" role="status" aria-live="polite" hidden></div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
